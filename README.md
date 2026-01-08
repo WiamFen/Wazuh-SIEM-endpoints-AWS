@@ -54,7 +54,7 @@ L'architecture repose sur :
 - **3 instances EC2** dans le même réseau
 - **2 Security Groups** configurés de manière stricte
 
-![Architecture Wazuh Lab](./docs/architecture.png)
+![Architecture Wazuh Lab](./docs/Architecture_Lab.png)
 
 ### 🔹 Composants
 
