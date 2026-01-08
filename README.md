@@ -493,37 +493,19 @@ Atelier_Securite_Endpoints_SIEM/
 │
 ├── README.md                          # Documentation complète (ce fichier)
 ├── docs/
-│   ├── architecture.png               # Schéma d'architecture du lab
-│   ├── rapport_complet.pdf            # Rapport détaillé du TP
-│   └── screenshots/                   # Captures d'écran des étapes
-│       ├── 01_aws_console.png
-│       ├── 02_vpc_creation.png
-│       ├── 03_security_groups.png
-│       ├── 04_ec2_instances.png
-│       ├── 05_wazuh_installation.png
-│       ├── 06_dashboard_login.png
-│       ├── 07_agents_active.png
-│       ├── 08_linux_alerts.png
-│       └── 09_windows_alerts.png
-│
-├── scripts/
-│   ├── install_wazuh_server.sh        # Script d'installation serveur
-│   ├── enroll_linux_agent.sh          # Enrôlement agent Linux
-│   ├── enroll_windows_agent.ps1       # Enrôlement agent Windows
-│   └── install_sysmon.ps1             # Installation Sysmon (optionnel)
-│
-├── configs/
-│   ├── security_groups.json           # Configuration SG AWS
-│   ├── wazuh_agent_linux.conf         # Config agent Linux
-│   ├── wazuh_agent_windows.conf       # Config agent Windows
-│   └── sysmon_config.xml              # Config Sysmon SwiftOnSecurity
-│
-└── scenarios/
-    ├── linux_bruteforce.sh            # Scénario 1 Linux
-    ├── linux_privilege_escalation.sh  # Scénario 2 Linux
-    ├── linux_file_modification.sh     # Scénario 3 Linux
-    ├── windows_failed_login.ps1       # Scénario 1 Windows
-    └── windows_user_creation.ps1      # Scénario 2 Windows
+    ├── architecture.png               # Schéma d'architecture du lab
+    ├── rapport_complet.pdf            # Rapport détaillé du TP
+    └── screenshots/                   # Captures d'écran des étapes
+        ├── 01_aws_console.png
+        ├── 02_vpc_creation.png
+        ├── 03_security_groups.png
+        ├── 04_ec2_instances.png
+        ├── 05_wazuh_installation.png
+        ├── 06_dashboard_login.png
+        ├── 07_agents_active.png
+        ├── 08_linux_alerts.png
+        └── 09_windows_alerts.png
+
 ```
 
 ---
@@ -545,69 +527,6 @@ Atelier_Securite_Endpoints_SIEM/
 
 ---
 
-## ✅ Livrables attendus
-
-À l'issue de cet atelier, les participants doivent fournir :
-
-### 📋 **1. Captures d'écran obligatoires**
-
-- ✅ Architecture AWS (VPC + Security Groups + EC2)
-- ✅ Dashboard Wazuh avec **agents actifs** (Linux + Windows)
-- ✅ **Alertes Linux** :
-  - Tentatives SSH échouées
-  - Élévation de privilèges (sudo)
-- ✅ **Alertes Windows** :
-  - Échecs de connexion (Event ID 4625)
-  - Création utilisateur + ajout au groupe Administrators
-
-### 📄 **2. Rapport technique**
-
-Structure recommandée :
-1. Introduction et contexte
-2. Architecture déployée (schéma + description)
-3. Méthodologie de déploiement
-4. Scénarios de sécurité réalisés
-5. Analyse des résultats
-6. Concepts de sécurité (SIEM, EDR, IAM/PAM)
-7. Conclusion et apports pédagogiques
-
-### 🔍 **3. Requêtes Threat Hunting**
-
-Exemples de 3 requêtes à documenter :
-1. Filtrer les authentifications échouées sur Linux (Rule ID)
-2. Identifier les créations de comptes Windows
-3. Tracer les modifications de groupes sensibles
-
----
-
-## 🚀 Déploiement rapide (Quick Start)
-
-Pour un déploiement rapide du lab :
-```bash
-# 1. Cloner le dépôt
-git clone https://github.com/votre-username/Atelier_Securite_Endpoints_SIEM.git
-cd Atelier_Securite_Endpoints_SIEM
-
-# 2. Déployer l'infrastructure AWS (manuel via console)
-# Suivre les étapes 1 à 4 du README
-
-# 3. Installer le serveur Wazuh
-ssh -i KEY_Wazuh_Server.pem ubuntu@<IP_SERVEUR>
-bash scripts/install_wazuh_server.sh
-
-# 4. Enrôler les agents
-# Linux
-bash scripts/enroll_linux_agent.sh <IP_SERVEUR_WAZUH>
-
-# Windows (PowerShell Admin)
-.\scripts\enroll_windows_agent.ps1 -ServerIP <IP_SERVEUR_WAZUH>
-
-# 5. Générer des événements
-bash scenarios/linux_bruteforce.sh
-.\scenarios\windows_failed_login.ps1
-```
-
----
 
 ## ⚠️ Troubleshooting
 
@@ -649,31 +568,6 @@ Les contributions sont les bienvenues ! Pour contribuer :
 3. Commit les modifications : `git commit -m 'Ajout fonctionnalité X'`
 4. Push vers la branche : `git push origin feature/amelioration`
 5. Ouvrir une **Pull Request**
-
----
-
-## 📧 Contact
-
-Pour toute question ou suggestion :
-
-- **Email** : votre.email@example.com
-- **LinkedIn** : [Votre Profil](https://linkedin.com/in/votre-profil)
-- **GitHub** : [@votre-username](https://github.com/votre-username)
-
----
-
-## 📄 Licence
-
-Ce projet est distribué sous licence **MIT**. Voir le fichier `LICENSE` pour plus de détails.
-
----
-
-## 🎓 Remerciements
-
-- **Anthropic / Claude** pour l'assistance documentaire
-- **Wazuh Team** pour la solution open-source
-- **AWS Learner Lab** pour l'infrastructure Cloud
-- **Enseignants et étudiants** ayant contribué au projet
 
 ---
 
